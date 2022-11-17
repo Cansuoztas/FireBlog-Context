@@ -14,7 +14,7 @@ import {
   toastErrorNotify,
   toastSuccessNotify,
   toastWarnNotify,
-} from "./ToastNotify";
+} from "./toastNotify"
 
 //* Your web app's Firebase configuration
 // TODO: Replace the following with your app's Firebase project configuration
