@@ -2,9 +2,7 @@ import React from 'react'
 
 const NewBlog = () => {
   return (
-    <div>
-      
-    </div>
+    <div>NewBlog</div>
   )
 }
 

@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { userObserver } from '../helpers/firebase';
+import { userObserver } from '../helper/firebase';
 
 export const AuthContext =createContext();
 
@@ -10,9 +10,11 @@ const [currentUser, setCurrentUser] = useState(true)
 console.log(currentUser)
 useEffect(() => {
   userObserver(setCurrentUser);
-
+console.log(currentUser)
   
 }, [])
+console.log(currentUser)
+
   return (
     <div>
      <AuthContext.Provider value={{currentUser}}>
