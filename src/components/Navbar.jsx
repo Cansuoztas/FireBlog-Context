@@ -5,23 +5,23 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-
+import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-
+import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from "@mui/icons-material/Adb";
 
-
-import { Link } from "react-router-dom";
-import { logOut } from "../helper/firebase";
-import { AuthContext } from "../contexts/AuthContext";
-
+import { Link, useNavigate } from "react-router-dom";
+import { logOut } from "../helpers/firebase";
+import { AuthContext } from "../contexts/AuthContextProvider";
 
 const settings = ["Login", "Register"];
 const pages = ["Profile", "NewBlog", "Dashboard"];
 
 function Navbar() {
+  const navigate = useNavigate()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -113,7 +113,7 @@ function Navbar() {
             CodeAnka
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
-          
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -157,19 +157,19 @@ function Navbar() {
                       </Link>
                     </MenuItem>
                   ))}
-             {currentUser &&  <MenuItem onClick={handleCloseUserMenu}>
-                    <Link
-                      to="/login"
-                      onClick={() => {
-                        logOut();
-                      }}
-                      style={{ textDecoration: "none", color: "black" }}
-                    >
-                      <Typography textAlign="center">Logout</Typography>
-                    </Link>
-                  </MenuItem>}
-            
-
+              {currentUser && (
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Link
+                    to="/login"
+                    onClick={() => {
+                      logOut();
+                    }}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <Typography textAlign="center">Logout</Typography>
+                  </Link>
+                </MenuItem>
+              )}
             </Menu>
           </Box>
         </Toolbar>

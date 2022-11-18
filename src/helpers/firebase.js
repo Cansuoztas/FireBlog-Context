@@ -14,7 +14,7 @@ import {
   toastErrorNotify,
   toastSuccessNotify,
   toastWarnNotify,
-} from "./toastNotify"
+} from "./toastNotify";
 
 //* Your web app's Firebase configuration
 // TODO: Replace the following with your app's Firebase project configuration
@@ -28,6 +28,7 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_storageBucket,
   messagingSenderId: process.env.REACT_APP_messagingSenderId,
   appId: process.env.REACT_APP_appId,
+  databaseURL: "https://fireblog-context-default-rtdb.firebaseio.com",
 };
 
 // Initialize Firebase

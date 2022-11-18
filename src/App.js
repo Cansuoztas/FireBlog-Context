@@ -1,20 +1,20 @@
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import AuthContextProvider from './contexts/AuthContextProvider';
+import AppRouter from './router/AppRouter';
 
-
-import AppRouter from './app-router/AppRouter';
-import './App.css';
-import AuthContextProvider from './contexts/AuthContext';
-
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div>
       <AuthContextProvider>
-      <AppRouter />
+        <BrowserRouter>
+          <Navbar />
+          <AppRouter />
+        </BrowserRouter>
       </AuthContextProvider>
-      
-        
     </div>
   );
 }
 
-export default App;
+export default App

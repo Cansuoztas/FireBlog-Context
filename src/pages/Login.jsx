@@ -7,10 +7,10 @@ import LockIcon from "@mui/icons-material/Lock";
 import { Link, useNavigate } from "react-router-dom";
 // import { useSelector } from "react-redux";
 import { Formik, Form } from "formik";
-import { TextField } from "@mui/material";
+import { TextField ,Button } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 import * as yup from "yup";
-import { signUpWithGoogle } from "../helper/firebase";
+import { signUpWithGoogle } from "../helpers/firebase";
 const loginSchema = yup.object().shape({
   email: yup
     .string()
@@ -28,34 +28,23 @@ const loginSchema = yup.object().shape({
 });
 const Login = () => {
   const navigate = useNavigate();
+
+   const handleGoogle = () => {
+     signUpWithGoogle(navigate);
+   };
   // const { currentUser, error, loading } = useSelector((state) => state?.auth);
-
-
-  const handleGoogle=()=>{
-    signUpWithGoogle(navigate)
-  }
-
   return (
     <Container maxWidth="lg">
       <Grid
         container
         justifyContent="center"
-        // direction="row-reverse"
+        direction="row-reverse"
         sx={{
           height: "100vh",
           p: 2,
         }}
       >
-        {/* <Grid item xs={12} mb={3}>
-          <Typography variant="h3" color="primary" align="center">
-            STOCK APP
-          </Typography>
-        </Grid> */}
-        <Grid
-          justifyContent="center"
-          alignItems="-moz-initial"
-           item xs={12} sm={10} md={6}
-           >
+        <Grid item mt={10} xs={12} sm={10} md={6}>
           <Avatar
             sx={{
               backgroundColor: "secondary.light",
@@ -126,12 +115,14 @@ const Login = () => {
                     Submit
                   </LoadingButton>
                   <LoadingButton
-                  sx={{backgroundColor:"pink"}}
                     loadingPosition="center"
                     variant="contained"
+                    sx={{
+                      background: "purple",
+                    }}
                     onClick={handleGoogle}
                   >
-                    Login With Google
+                    log in with Google
                   </LoadingButton>
                 </Box>
               </Form>
